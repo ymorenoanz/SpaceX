@@ -1,5 +1,8 @@
 package com.yaritzama.spacex.presentation.adapters
 
+import android.content.Context
+import android.content.res.Configuration
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -10,9 +13,13 @@ import com.yaritzama.spacex.databinding.ViewItemListBinding
 import com.yaritzama.spacex.domain.models.SpaceModel
 
 class LaunchListAdapter(
-    private val onSpaceSelected: (SpaceModel) -> Unit) :
+    private val context: Context?,
+    private val onSpaceSelected: (SpaceModel, lastItemPosition: Int?,
+                                  currentItemPosition: Int?) -> Unit) :
     ListAdapter<SpaceModel, LaunchListAdapter.SpaceListViewHolder>(DiffUtilCallback())
 {
+    private var lastItemCheckedId: Int = -1
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpaceListViewHolder {
         return SpaceListViewHolder(ViewItemListBinding.inflate(LayoutInflater.from(parent.context),
        parent, false ))
@@ -29,16 +36,33 @@ class LaunchListAdapter(
         fun bind(item: SpaceModel)
         {
            with(itemListBinding){
-               val url: String = item.linkImage.toString()
+               val isLandscape = context?.resources?.configuration?.orientation == Configuration.ORIENTATION_LANDSCAPE
+               if(item.isSelected && isLandscape){
+                   myCardView.setCardBackgroundColor(Color.GRAY)
+               }
+               else{
+                   myCardView.setCardBackgroundColor(Color.WHITE)
+               }
+               val url= item.linkImage
                txtMissionName.text = item.missionName
                txtFlightNumber.text = item.flightNumber.toString()
-               Picasso.get().load(url).into(imgLaunch)
-               if(url == "null")
-               {
-                   Picasso.get().load("https://img.icons8.com/emoji/344/rocket-emji.png").into(imgLaunch)
-               }
+               Picasso.get().load(url?:"https://img.icons8.com/emoji/344/rocket-emji.png")
+                   .into(imgLaunch)
                btnDetails.setOnClickListener{
-                   onSpaceSelected(item)
+                   if(isLandscape)
+                   {
+                       if(lastItemCheckedId != -1){
+                           currentList[lastItemCheckedId].isSelected = false
+                       }
+                       currentList[adapterPosition].isSelected = true
+                       val lastSelectedItem = lastItemCheckedId
+                       lastItemCheckedId = adapterPosition
+                       onSpaceSelected(item, lastSelectedItem, lastItemCheckedId)
+                   }
+                   else{
+                       onSpaceSelected(item, null, null)
+                   }
+
                }
            }
         }

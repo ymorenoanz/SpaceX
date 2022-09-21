@@ -11,5 +11,6 @@ data class SpaceModel(
     val launchDate: String = "",
     val launchSiteName: String = "",
     val rocketName: String = "",
-    val linkImage: String = ""
+    val linkImage: String? = null,
+    var isSelected: Boolean = false
 ): Parcelable

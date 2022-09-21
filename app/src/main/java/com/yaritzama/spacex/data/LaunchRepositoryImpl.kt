@@ -3,6 +3,7 @@ package com.yaritzama.spacex.data
 import com.yaritzama.spacex.data.mappers.toDomain
 import com.yaritzama.spacex.data.network.SpaceDataSource
 import com.yaritzama.spacex.domain.LaunchRepository
+import com.yaritzama.spacex.domain.helpers.ToDate
 import com.yaritzama.spacex.domain.models.SpaceModel
 import javax.inject.Inject
 
@@ -18,7 +19,7 @@ class LaunchRepositoryImpl @Inject constructor(
         //DOMAIN MODEL
        return list.map {
            it.toDomain()
-       }
+       }.sortedByDescending { it.launchDate.ToDate()}
     }
 
     override suspend fun getLaunchDetails(launch: SpaceModel): SpaceModel {

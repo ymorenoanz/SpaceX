@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav_landscape"
+    app:startDestination="@id/emptyFragment">
+
+    <fragment
+        android:id="@+id/detailsFragment2"
+        android:name="com.yaritzama.spacex.presentation.details.DetailsFragment"
+        android:label="DetailsFragment" >
+        <argument
+            android:name="spaceModel"
+            app:argType="com.yaritzama.spacex.domain.models.SpaceModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/emptyFragment"
+        android:name="com.yaritzama.spacex.presentation.launch.EmptyFragment"
+        android:label="fragment_empty"
+        tools:layout="@layout/fragment_empty" />
+</navigation>

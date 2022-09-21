@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.yaritzama.spacex.databinding.FragmentDetailsBinding
 import com.yaritzama.spacex.databinding.FragmentLaunchBinding
+import com.yaritzama.spacex.domain.helpers.ToFormatDate
 import com.yaritzama.spacex.presentation.launch.LaunchViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -36,7 +37,7 @@ class DetailsFragment : Fragment()
         viewModel.spaceDetails.observe(viewLifecycleOwner){ spaceDetails ->
             with(binding){
                 txtMission.text = spaceDetails.missionName
-                txtLaunchDate.text = spaceDetails.launchDate
+                txtLaunchDate.text = spaceDetails.launchDate.ToFormatDate()
                 txtRocketName.text = spaceDetails.rocketName
                 txtLaunchSiteName.text = spaceDetails.launchSiteName
             }

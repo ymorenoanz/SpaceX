@@ -7,11 +7,11 @@ import com.yaritzama.spacex.domain.models.SpaceModel
 fun SpacexItem.toDomain(): SpaceModel{
     return SpaceModel(
         missionId = missionId.toString(),
-        missionName = missionName.toString(),
-        launchDate = launchDateLocal.toString(),
-        flightNumber = flightNumber?.toInt() ?: 0,
-        launchSiteName = launchSite.toString(),
-        rocketName = rocket?.rocketName.toString(),
-        linkImage = links?.missionPatchSmall.toString()
+        missionName = missionName?:"",
+        launchDate = launchDateUtc?:"",
+        flightNumber = flightNumber?: 0,
+        launchSiteName = launchSite?.siteName?:"",
+        rocketName = rocket?.rocketName?:"",
+        linkImage = links?.missionPatchSmall
     )
 }
