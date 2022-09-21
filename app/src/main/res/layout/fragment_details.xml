@@ -11,7 +11,7 @@
         android:id="@+id/txtLaunchDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/launch_date"
         app:layout_constraintTop_toBottomOf="@+id/txtLaunchSiteName"
         tools:layout_editor_absoluteX="0dp" />
 
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="@string/mission_name"
         app:layout_constraintBottom_toTopOf="@+id/txtRocketName"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp" />
@@ -29,7 +29,7 @@
         android:id="@+id/txtLaunchSiteName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/launch_site_name"
         app:layout_constraintBottom_toTopOf="@+id/txtLaunchDate"
         app:layout_constraintTop_toBottomOf="@+id/txtRocketName"
         tools:layout_editor_absoluteX="0dp" />
@@ -38,7 +38,7 @@
         android:id="@+id/txtRocketName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/rocket_name"
         app:layout_constraintBottom_toTopOf="@+id/txtLaunchSiteName"
         app:layout_constraintTop_toBottomOf="@+id/txtMission"
         tools:layout_editor_absoluteX="0dp" />

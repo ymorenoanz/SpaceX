@@ -2,5 +2,9 @@
     <string name="app_name">SpaceX</string>
     <string name="btnDetails">Details</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Please select an item</string>
+    <string name="mission_name">Mission name:</string>
+    <string name="launch_date">Launch date:</string>
+    <string name="launch_site_name">Launch site name:</string>
+    <string name="rocket_name">Rocket name:</string>
 </resources>
