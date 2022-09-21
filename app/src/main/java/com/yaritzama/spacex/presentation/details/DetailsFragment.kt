@@ -17,7 +17,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class DetailsFragment : Fragment()
 {
     lateinit var binding: FragmentDetailsBinding
-    private val viewModel by viewModels<DetailsViewModel>()
     private val args by navArgs<DetailsFragmentArgs>()
 
     override fun onCreateView(
@@ -33,15 +32,12 @@ class DetailsFragment : Fragment()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.fetchDetails(args.spaceModel)
-        viewModel.spaceDetails.observe(viewLifecycleOwner){ spaceDetails ->
-            with(binding){
-                txtMission.text = spaceDetails.missionName
-                txtLaunchDate.text = spaceDetails.launchDate.ToFormatDate()
-                txtRocketName.text = spaceDetails.rocketName
-                txtLaunchSiteName.text = spaceDetails.launchSiteName
-            }
-
+        val spaceDetails = args.spaceModel
+        with(binding){
+            txtMission.text = spaceDetails.missionName
+            txtLaunchDate.text = spaceDetails.launchDate.ToFormatDate()
+            txtRocketName.text = spaceDetails.rocketName
+            txtLaunchSiteName.text = spaceDetails.launchSiteName
         }
 
     }

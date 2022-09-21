@@ -10,10 +10,4 @@ interface SpaceXAPI
 {
     @GET("launches")
     suspend fun getSpaceList(): Response<List<SpacexItem>>
-
-    @GET("launches")
-    suspend fun fetchSpacebyMissionId(
-        @Query("mission_id") missionId: String
-    ): Response<List<SpacexItem>>
-
 }
