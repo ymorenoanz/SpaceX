@@ -7,31 +7,22 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/txtLaunchDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/launch_date"
-        app:layout_constraintTop_toBottomOf="@+id/txtLaunchSiteName"
-        tools:layout_editor_absoluteX="0dp" />
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="210dp"
+        android:layout_height="167dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="6dp"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <TextView
         android:id="@+id/txtMission"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="@string/mission_name"
         app:layout_constraintBottom_toTopOf="@+id/txtRocketName"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <TextView
-        android:id="@+id/txtLaunchSiteName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/launch_site_name"
-        app:layout_constraintBottom_toTopOf="@+id/txtLaunchDate"
-        app:layout_constraintTop_toBottomOf="@+id/txtRocketName"
+        app:layout_constraintTop_toBottomOf="@+id/imgView"
         tools:layout_editor_absoluteX="0dp" />
 
     <TextView
@@ -41,6 +32,24 @@
         android:text="@string/rocket_name"
         app:layout_constraintBottom_toTopOf="@+id/txtLaunchSiteName"
         app:layout_constraintTop_toBottomOf="@+id/txtMission"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/txtLaunchDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/launch_date"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtLaunchSiteName"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/txtLaunchSiteName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/launch_site_name"
+        app:layout_constraintBottom_toTopOf="@+id/txtLaunchDate"
+        app:layout_constraintTop_toBottomOf="@+id/txtRocketName"
         tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

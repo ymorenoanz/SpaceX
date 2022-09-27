@@ -8,7 +8,8 @@
     <fragment
         android:id="@+id/detailsFragment2"
         android:name="com.yaritzama.spacex.presentation.details.DetailsFragment"
-        android:label="DetailsFragment" >
+        android:label="DetailsFragment"
+        tools:layout="@layout/fragment_details">
         <argument
             android:name="spaceModel"
             app:argType="com.yaritzama.spacex.domain.models.SpaceModel" />

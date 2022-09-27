@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.squareup.picasso.Picasso
 import com.yaritzama.spacex.R
 import com.yaritzama.spacex.databinding.FragmentDetailsBinding
 import com.yaritzama.spacex.databinding.FragmentLaunchBinding
@@ -37,10 +38,13 @@ class DetailsFragment : Fragment()
         super.onViewCreated(view, savedInstanceState)
         val spaceDetails = args.spaceModel
         with(binding){
-            txtMission.text = getString(R.string.mission_name) + spaceDetails.missionName
-            txtLaunchDate.text = getString(R.string.launch_date) + spaceDetails.launchDate.ToFormatDate()
-            txtRocketName.text = getString(R.string.launch_date) + spaceDetails.rocketName
-            txtLaunchSiteName.text = getString(R.string.launch_date) + spaceDetails.launchSiteName
+            val url = spaceDetails.linkImage
+            txtMission.text = getString(R.string.mission_name, spaceDetails.missionName)
+            txtLaunchDate.text = getString(R.string.launch_date, spaceDetails.launchDate.ToFormatDate())
+            txtRocketName.text = getString(R.string.rocket_name, spaceDetails.rocketName)
+            txtLaunchSiteName.text = getString(R.string.launch_site_name, spaceDetails.launchSiteName)
+            Picasso.get().load(url ?: "https://img.icons8.com/emoji/344/rocket-emji.png")
+                .into(imgView)
         }
 
     }
