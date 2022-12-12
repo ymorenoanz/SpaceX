@@ -11,7 +11,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@drawable/space_2">
+        android:background="@drawable/space_3">
 
         <TextView
             android:id="@+id/txtFlightNumber"
